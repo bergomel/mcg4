@@ -1,0 +1,18 @@
+[
+    {
+        "Substancia": "Dobutamina",
+        "Dose": 1000,
+        "Volume": 250,
+        "Velocidade": 10,
+        "Minimo": 2,
+        "Maximo": 20
+    },
+    {
+        "Substancia": "Noradrenalina",
+        "Dose": 16,
+        "Volume": 250,
+        "Velocidade": 10,
+        "Minimo": 0.05,
+        "Maximo": 2
+    }
+]

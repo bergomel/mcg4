@@ -1,8 +1,6 @@
 import Foundation
 
-class Droga: ObservableObject, Identifiable, Equatable, Hashable {
-
-    
+class Droga: ObservableObject {
     //   ESTÁTICOS
         
         var Minimo: Double
@@ -20,7 +18,7 @@ class Droga: ObservableObject, Identifiable, Equatable, Hashable {
         var Volume: Int {
             willSet { objectWillChange.send() }
         }
-        var Velocidade: Double {
+        var Velocidade: Int {
             willSet { objectWillChange.send() }
         }
         
@@ -35,13 +33,12 @@ class Droga: ObservableObject, Identifiable, Equatable, Hashable {
         }
         
         func calcular_range_velocidade(Peso:Int) -> ClosedRange<Double> {
-            let velocidade_min = (Minimo * Double(Peso) * 60 * Double(Volume)) / (Double(Dose) * 1000)
-            let velocidade_max = (Maximo * Double(Peso) * 60 * Double(Volume)) / (Double(Dose) * 1000)
-            print(velocidade_min...velocidade_max)
+            let velocidade_min = 2 / Double(Volume) * Double(Dose) / 60 * 1000 / Double(Peso)
+            let velocidade_max = 20 / Double(Volume) * Double(Dose) / 60 * 1000 / Double(Peso)
             return velocidade_min...velocidade_max
         }
     
-    init(Substancia: String, Dose: Int, Volume: Int, Velocidade: Double, Maximo: Double, Minimo: Double) {
+    init(Substancia: String, Dose: Int, Volume: Int, Velocidade: Int, Maximo: Double, Minimo: Double) {
            self.Substancia = Substancia
            self.Dose = Dose
            self.Volume = Volume
@@ -49,48 +46,13 @@ class Droga: ObservableObject, Identifiable, Equatable, Hashable {
            self.Maximo = Maximo
            self.Minimo = Minimo
        }
-    
-
-        // Conform to Equatable
-        static func == (lhs: Droga, rhs: Droga) -> Bool {
-            return lhs.id == rhs.id &&
-                   lhs.Substancia == rhs.Substancia &&
-                   lhs.Dose == rhs.Dose &&
-                   lhs.Volume == rhs.Volume &&
-                   lhs.Velocidade == rhs.Velocidade &&
-                   lhs.Minimo == rhs.Minimo &&
-                   lhs.Maximo == rhs.Maximo
-        }
-        
-        // Conform to Hashable
-        func hash(into hasher: inout Hasher) {
-            hasher.combine(id)
-            hasher.combine(Substancia)
-            hasher.combine(Dose)
-            hasher.combine(Volume)
-            hasher.combine(Velocidade)
-            hasher.combine(Minimo)
-            hasher.combine(Maximo)
-        }
-    
-    func update(from outraDroga: Droga) {
-        self.id = outraDroga.id
-        self.Substancia = outraDroga.Substancia
-        self.Dose = outraDroga.Dose
-        self.Volume = outraDroga.Volume
-        self.Velocidade = outraDroga.Velocidade
-        self.Minimo = outraDroga.Minimo
-        self.Maximo = outraDroga.Maximo
-        // Atualize outras propriedades conforme necessário
-    }
-    
 }
 
 struct DrogaData: Codable {
     let Substancia: String
     let Dose: Int
     let Volume: Int
-    let Velocidade: Double
+    let Velocidade: Int
     let Minimo: Double
     let Maximo: Double
 }
