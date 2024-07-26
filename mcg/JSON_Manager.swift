@@ -14,7 +14,7 @@ class Droga: ObservableObject, Identifiable, Equatable, Hashable {
             willSet { objectWillChange.send() }
         }
 
-        var Dose: Int {
+        @Published var Dose: Int {
             willSet { objectWillChange.send() }
         }
         var Volume: Int {
@@ -37,18 +37,17 @@ class Droga: ObservableObject, Identifiable, Equatable, Hashable {
         func calcular_range_velocidade(Peso:Int) -> ClosedRange<Double> {
             let velocidade_min = (Minimo * Double(Peso) * 60 * Double(Volume)) / (Double(Dose) * 1000)
             let velocidade_max = (Maximo * Double(Peso) * 60 * Double(Volume)) / (Double(Dose) * 1000)
-            print(velocidade_min...velocidade_max)
             return velocidade_min...velocidade_max
         }
     
-    init(Substancia: String, Dose: Int, Volume: Int, Velocidade: Double, Maximo: Double, Minimo: Double) {
-           self.Substancia = Substancia
-           self.Dose = Dose
-           self.Volume = Volume
-           self.Velocidade = Velocidade
-           self.Maximo = Maximo
-           self.Minimo = Minimo
-       }
+    init(Substancia: String?, Dose: Int?, Volume: Int?, Velocidade: Double?, Maximo: Double?, Minimo: Double?) {
+        self.Substancia = Substancia ?? "Dobutamina"
+        self.Dose = Dose ?? 1000
+        self.Volume = Volume ?? 250
+        self.Velocidade = Velocidade ?? 10
+        self.Maximo = Maximo ?? 20
+        self.Minimo = Minimo ?? 2
+    }
     
 
         // Conform to Equatable

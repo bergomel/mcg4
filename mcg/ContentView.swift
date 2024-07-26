@@ -22,16 +22,17 @@ struct ContentView: View {
     @State private var cor2:Color = Color("Color2")
     @State var peso:Int = 75
     
-   
+    
     @State var drogaSelecionada_ID: Droga.ID = drogas.first?.id ?? UUID() // Ajuste o tipo de ID conforme necessário
-    @StateObject var drogaSelecionada = drogas.first!
+    @State private var drogaSelecionada : Droga = Droga(Substancia: "Dobutamina", Dose: 1000, Volume: 250, Velocidade: 10, Maximo: 20, Minimo: 2)
+    @State private var isNavigating = false
     
     
     var body: some View {
         
         
         @State var mcgkgmin = drogaSelecionada.calcular_infusao(Peso: peso)
-
+        
         VStack {
             
             VStack{
@@ -60,7 +61,7 @@ struct ContentView: View {
                             .foregroundColor(cor2)
                     }
                     .gaugeStyle(.accessoryLinear)
-                .tint(Gradient(colors: [cor1, cor2]))
+                    .tint(Gradient(colors: [cor1, cor2]))
                     
                     Slider(value: $drogaSelecionada.Velocidade, in:drogaSelecionada.calcular_range_velocidade(Peso: peso))
                         .opacity(0.5)
@@ -96,15 +97,18 @@ struct ContentView: View {
                 
                 Section() {
                     
-                    Picker("Select Droga", selection: $drogaSelecionada_ID){
-                                            ForEach(drogas) { droga in
-                                                Text(droga.Substancia).tag(droga.id)
-                                            }
-                                        }.onChange(of: drogaSelecionada_ID) { oldValue, newValue in
-                                            if let novaDroga = drogas.first(where: {$0.id == newValue}) {
-                                                drogaSelecionada.update(from: novaDroga)
-                                            }
-                                        }
+                    Picker("", selection: $drogaSelecionada){
+                        ForEach(drogas) { droga in
+                            Text(droga.Substancia).tag(droga as Droga)
+                        }
+                        .onChange(of: drogaSelecionada) { oldValue, newValue in
+                                print(newValue as Any)
+                        }
+                        //                        if let novaDroga = drogas.first(where: {$0.id == newValue}) {
+                        //
+                        //                            drogaSelecionada.update(from: novaDroga)
+                    
+                    }
                     
                     //                    Picker("droga", selection: $idSolSelecionada) {
                     //                        Text("KKK").tag(0)
@@ -177,9 +181,19 @@ struct ContentView: View {
                     }
                 }
                 
+                Button(action: {
+                    isNavigating = true
+                }) {
+                    Text("Go to TestContentView")
+                }
+                NavigationLink(destination: TestContentView(selectedPerson: Person(name: "Bernardo", age: 29), selectedPersonID: UUID()), isActive: $isNavigating) {
+    EmptyView()
+}
+
+                
             }}
         .scrollDismissesKeyboard(.interactively)
-
+        
     }
 }
 struct ContentView_Previews: PreviewProvider {

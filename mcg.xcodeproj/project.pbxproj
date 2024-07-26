@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		D124BDF82C47F69300355FCA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124BDF72C47F69300355FCA /* ContentView.swift */; };
+		D15FD9B62C4A25D40001C5DD /* teste_picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15FD9B42C4A24190001C5DD /* teste_picker.swift */; };
 		D163048D2C4170470002F216 /* soluções - cópia.json in Resources */ = {isa = PBXBuildFile; fileRef = D163048C2C4170470002F216 /* soluções - cópia.json */; };
+		D16C2CEC2C53D6B400D5E566 /* struct organizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16C2CEB2C53D6B400D5E566 /* struct organizer.swift */; };
+		D16C2CEE2C53D99000D5E566 /* gerenciador_drogas.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16C2CED2C53D99000D5E566 /* gerenciador_drogas.swift */; };
 		D1C47E462C186D90006729E9 /* soluções.json in Resources */ = {isa = PBXBuildFile; fileRef = D1C47E3E2C186D90006729E9 /* soluções.json */; };
 		D1C47E472C186D90006729E9 /* teste bibloteca.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C47E3F2C186D90006729E9 /* teste bibloteca.swift */; };
 		D1C47E482C186D90006729E9 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D1C47E402C186D90006729E9 /* Model.xcdatamodeld */; };
@@ -20,8 +23,11 @@
 
 /* Begin PBXFileReference section */
 		D124BDF72C47F69300355FCA /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D15FD9B42C4A24190001C5DD /* teste_picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = teste_picker.swift; sourceTree = "<group>"; };
 		D163048C2C4170470002F216 /* soluções - cópia.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "soluções - cópia.json"; sourceTree = "<group>"; };
 		D16304902C4179680002F216 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D16C2CEB2C53D6B400D5E566 /* struct organizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "struct organizer.swift"; sourceTree = "<group>"; };
+		D16C2CED2C53D99000D5E566 /* gerenciador_drogas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gerenciador_drogas.swift; sourceTree = "<group>"; };
 		D1C47E3E2C186D90006729E9 /* soluções.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "soluções.json"; sourceTree = "<group>"; };
 		D1C47E3F2C186D90006729E9 /* teste bibloteca.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "teste bibloteca.swift"; sourceTree = "<group>"; };
 		D1C47E412C186D90006729E9 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -63,7 +69,9 @@
 			isa = PBXGroup;
 			children = (
 				D124BDF72C47F69300355FCA /* ContentView.swift */,
+				D15FD9B42C4A24190001C5DD /* teste_picker.swift */,
 				D1C47E422C186D90006729E9 /* JSON_Manager.swift */,
+				D16C2CED2C53D99000D5E566 /* gerenciador_drogas.swift */,
 				D1C47E402C186D90006729E9 /* Model.xcdatamodeld */,
 				D1C47E3E2C186D90006729E9 /* soluções.json */,
 				D1C47E3F2C186D90006729E9 /* teste bibloteca.swift */,
@@ -72,6 +80,7 @@
 				D1E3A0042C1869D200840509 /* mcgApp.swift */,
 				D1E3A0082C1869D400840509 /* Assets.xcassets */,
 				D1E3A00A2C1869D400840509 /* Preview Content */,
+				D16C2CEB2C53D6B400D5E566 /* struct organizer.swift */,
 			);
 			path = mcg;
 			sourceTree = "<group>";
@@ -156,9 +165,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D16C2CEC2C53D6B400D5E566 /* struct organizer.swift in Sources */,
 				D1C47E472C186D90006729E9 /* teste bibloteca.swift in Sources */,
+				D15FD9B62C4A25D40001C5DD /* teste_picker.swift in Sources */,
 				D124BDF82C47F69300355FCA /* ContentView.swift in Sources */,
 				D1C47E492C186D90006729E9 /* JSON_Manager.swift in Sources */,
+				D16C2CEE2C53D99000D5E566 /* gerenciador_drogas.swift in Sources */,
 				D1E3A0052C1869D200840509 /* mcgApp.swift in Sources */,
 				D1C47E482C186D90006729E9 /* Model.xcdatamodeld in Sources */,
 			);

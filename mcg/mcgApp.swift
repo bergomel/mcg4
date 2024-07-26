@@ -11,7 +11,7 @@ import SwiftUI
 struct mcgApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TestContentView(selectedPerson: Person(name: "Alice", age: 25), selectedPersonID: UUID())
         }
     }
 }
